@@ -49,3 +49,6 @@ pop  {r7, pc}    @ pc guarda la direccion de la instruccion!!!
 bx   lr          @ regresar a la direccion a la que se llamó
 
 @Para compilar tenemos que encontrar la expresion que da el salto
+
+@Evitar variables globales!!
+@4 bytes por entero
