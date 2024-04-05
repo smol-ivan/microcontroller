@@ -52,3 +52,13 @@ bx   lr          @ regresar a la direccion a la que se llamó
 
 @Evitar variables globales!!
 @4 bytes por entero
+
+lr  @ es la direccion de retorno a reset handler main
+@for en ensamblador
+@1 inicializacion del contador
+@2 cuerpo del for
+@3 actualizador del contador
+@4 condicion de iterador
+
+@static inline gcc va a evaluar el resultado en tiempor de compilacion
+@ multiplicacion por dos usamos desplazamiento logico a la derecha
