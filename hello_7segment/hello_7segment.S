@@ -41,6 +41,9 @@ L2:
     ldr     r0, [r7, 40]
     bl      gpio_set_dir_wrapper
     @ gpio_set_outover(gpio, GPIO_OVERRIDE_INVERT) todo
+    movs    r0, GPIO_OVERRIDE_INVERT
+    ldr     r1, [r7, 40]
+    bl      gpio_set_outover_wrapper
     @ gpio ++
     ldr     r3, [r7, 40]    @carga gpio
     adds    r3, 1           @procesa gpio gpio++
