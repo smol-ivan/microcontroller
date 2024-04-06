@@ -57,6 +57,9 @@ L1:
     movs    r0, BUTTON
     bl      gpio_init
     @ gpio_set_dir_wrapper(BUTTON_GPIO, GPIO_IN) todo
+    movs    r1, GPIO_IN
+    movs    r0, BUTTON_GPIO
+    bl      gpio_set_dir_wrapper
     @ gpio_pull_up_wrapper(BUTTON_GPIO)
     @ init val = 0 todo
     @ while loop
