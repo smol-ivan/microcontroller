@@ -5,8 +5,10 @@
 .syntax unified @ Usa la sintaxis nueva de ARM thumb
 .thumb_func @ Indica que las intrucciones de la funcion son 2 Bytes
 .equ FIRST_GPIO, 2
-.equ BUTTON, FIRST_GPIO+7 
+.equ BUTTON_GPIO, FIRST_GPIO+7 
 .equ GPIO_OUT, 1
+.equ GPIO_IN, 0
+.equ GPIO_OVERRIDE_INVERT, 0
 main:
     @ prologue
     push    {r7, lr}
