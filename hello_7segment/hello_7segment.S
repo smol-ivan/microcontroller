@@ -61,6 +61,8 @@ L1:
     movs    r0, BUTTON_GPIO
     bl      gpio_set_dir_wrapper
     @ gpio_pull_up_wrapper(BUTTON_GPIO)
+    movs    r0, BUTTON_GPIO
+    bl      gpio_pull_up_wrapper
     @ init val = 0 todo
     @ while loop
 LW:
