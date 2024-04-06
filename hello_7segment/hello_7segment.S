@@ -22,6 +22,7 @@ main:
     ldmia   r0!, {r2, r3, r4, r5, r6}  
     stmia   r1!, {r2, r3, r4, r5, r6}
     @ stdio_init_all()
+    bl      stdio_init_all
     @ printf("Hello, 7segment - press button to count down!\n")
     @ for loop
     @ iterator's init
