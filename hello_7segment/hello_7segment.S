@@ -24,6 +24,8 @@ main:
     @ stdio_init_all()
     bl      stdio_init_all
     @ printf("Hello, 7segment - press button to count down!\n")
+    ldr     r0, =STR    @ obtner la direccion de STR
+    bl      printf  
     @ for loop
     @ iterator's init
     movs    r3, FIRST_GPIO
@@ -79,3 +81,6 @@ BITS:
     .word   0x07
     .word   0x7f
     .word   0x67
+
+.align 4
+STR:        .ascii "Hello, 7segment - press button to count down!\012\000"
