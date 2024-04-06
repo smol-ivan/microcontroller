@@ -23,7 +23,7 @@ L1:
     @ Los argumentos se calculan de izquierda a derecha
     ldr     r2, [r7, 0]     @ Obtener el valor de fib_num
     ldr     r1, [r7, 4]     @ Obtener el valor de 'i'
-    ldr     r0, =STR1        @ Obtener la direccion de STR
+    ldr     r0, =STR1       @ Obtener la direccion de STR
     bl      printf
     @ i++
     ldr     r3, [r3, 4]
