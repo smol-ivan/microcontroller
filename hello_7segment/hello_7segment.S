@@ -34,6 +34,8 @@ main:
     @ loop's body
 L2:
     @ gpio_init(gpio) todo
+    ldr     r0, [r7, 40]    @ carga gpio
+    bl      gpio_init
     @ gpio_set_dir(gpio, GPIO_OUT)
     movs    r1, GPIO_OUT
     ldr     r0, [r7, 40]
