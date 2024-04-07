@@ -41,9 +41,9 @@ L2:
     ldr     r0, [r7, 40]
     bl      gpio_set_dir_wrapper
     @ gpio_set_outover(gpio, GPIO_OVERRIDE_INVERT) todo
-    movs    r0, GPIO_OVERRIDE_INVERT
-    ldr     r1, [r7, 40]
-    bl      gpio_set_outover_wrapper
+    movs    r1, GPIO_OVERRIDE_INVERT
+    ldr     r0, [r7, 40]
+    bl      gpio_set_outover
     @ gpio ++
     ldr     r3, [r7, 40]    @carga gpio
     adds    r3, 1           @procesa gpio gpio++
@@ -63,9 +63,11 @@ L1:
     @ gpio_pull_up_wrapper(BUTTON_GPIO)
     movs    r0, BUTTON_GPIO
     bl      gpio_pull_up_wrapper
-    @ init val = 0 todo
+    @ val = 0 todo
+    movs    r3, 0
+    str     r3, [r7, 44]
     @ while loop
-LW:
+L4:
 
     @ mask = bits[val] << FIRST_GPIO
     mov     r3, r7          @ gets bit's base address
@@ -75,7 +77,7 @@ LW:
     lsls    r3, FIRST_GPIO  @ bits[val] << FIRST_GPIO
     str     r3, [r7, 48]
 
-    b       LW
+    b       L4
 
 
 
