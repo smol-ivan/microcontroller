@@ -54,7 +54,7 @@ L1:
     cmp     r3, 9
     blt     L2
     @ gpio_init(BUTTON_GPIO) todo
-    movs    r0, BUTTON
+    movs    r0, BUTTON_GPIO
     bl      gpio_init
     @ gpio_set_dir_wrapper(BUTTON_GPIO, GPIO_IN) todo
     movs    r1, GPIO_IN
