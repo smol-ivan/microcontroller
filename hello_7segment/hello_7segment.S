@@ -24,7 +24,7 @@ main:
     @ stdio_init_all()
     bl      stdio_init_all
     @ printf("Hello, 7segment - press button to count down!\n")
-    ldr     r0, =STR    @ obtner la direccion de STR
+    ldr     r0, =STR1    @ obtner la direccion de STR
     bl      printf  
     @ for loop
     @ iterator's init
@@ -97,4 +97,4 @@ BITS:
     .word   0x67
 
 .align 4
-STR:        .ascii "Hello, 7segment - press button to count down!\012\000"
+STR1:        .ascii "Hello, 7segment - press button to count down!\012\000"
