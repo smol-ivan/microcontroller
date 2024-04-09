@@ -42,9 +42,9 @@ L2:
     bl      gpio_set_dir_wrapper
     @ gpio_set_outover(gpio, GPIO_OVERRIDE_INVERT) todo
     @ movs    r1, GPIO_OVERRIDE_INVERT
-    @ movs    r1, #1
-    @ ldr     r0, [r7, 40]
-    @ bl      gpio_set_outover
+    movs    r1, #1
+    ldr     r0, [r7, 40]
+    bl      gpio_set_outover
     @ gpio ++
     ldr     r3, [r7, 40]    @carga gpio
     adds    r3, 1           @procesa gpio gpio++
@@ -75,10 +75,12 @@ L4:
     @ movs    r5, #0
     @ cmp     r0, r5
     @ beq     button_pressed
+    @ movs    r5, #0
     movs    r5, #0
     cmp     r0, r5
-    bne     boton_no_oprimido
+    bne     boton_no_oprimido   @ L3
 boton_oprimido:
+@ if val == 9
     ldr     r6, [r7, 44]
     movs    r0, #9
     cmp     r6, r0
@@ -93,6 +95,7 @@ val_not_eq_9:
     str     r1, [r7, 44]
     b       end_if
 boton_no_oprimido:
+@ else if (val == 0)
     ldr     r6, [r7, 44]
     movs    r0, #0
     cmp     r6, r0
@@ -139,13 +142,13 @@ STR1:           .ascii "Hello, 7segment - press button to count down!\012\000"
 .section    .rodata @read only data
 .align 2
 BITS:   
-    .word   0xc0
-    .word   0xf9
-    .word   0xa4
-    .word   0xb0
-    .word   0x99
-    .word   0x92
-    .word   0x82
-    .word   0xf8
-    .word   0x80
-    .word   0x98
+    .word   0x3f
+    .word   0x06
+    .word   0x5b
+    .word   0x4f
+    .word   0x66
+    .word   0x6d
+    .word   0x7d
+    .word   0x07
+    .word   0x7f
+    .word   0x67
