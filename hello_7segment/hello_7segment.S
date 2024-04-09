@@ -42,9 +42,9 @@ L2:
     bl      gpio_set_dir_wrapper
     @ gpio_set_outover(gpio, GPIO_OVERRIDE_INVERT) todo
     @ movs    r1, GPIO_OVERRIDE_INVERT
-    movs    r1, #1
-    ldr     r0, [r7, 40]
-    bl      gpio_set_outover
+    @ movs    r1, #1
+    @ ldr     r0, [r7, 40]
+    @ bl      gpio_set_outover
     @ gpio ++
     ldr     r3, [r7, 40]    @carga gpio
     adds    r3, 1           @procesa gpio gpio++
@@ -70,7 +70,7 @@ L1:
     str     r3, [r7, 44]
     @ while loop
 L4:
-    movs    r4, BUTTON_GPIO
+    movs    r0, BUTTON_GPIO
     bl      gpio_get_wrapper
     @ movs    r5, #0
     @ cmp     r0, r5
