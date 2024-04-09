@@ -124,11 +124,13 @@ end_if:
     @ bl      sleep_ms
     @ gpio_clr_mask(mask)
     @ movs    r0, #250
-    ldr     r0, =DELAY
-loop_d:
-    adds    r0, -1
-    cmp     r0, 0
-    bne     loop_d
+@     ldr     r0, =DELAY
+@ loop_d:
+@     adds    r0, -1
+@     cmp     r0, 0
+@     bne     loop_d
+    ldr     r0, DELAY
+    bl      sleep_ms
     ldr     r0, [r7, 48]
     bl      gpio_clr_mask_wrapper
     b       L4
@@ -136,7 +138,7 @@ loop_d:
 
 
 .align 4
-DELAY:          .word 10
+DELAY:          .word 500
 STR1:           .ascii "Hello, 7segment - press button to count down!\012\000"
 
 .section    .rodata @read only data
