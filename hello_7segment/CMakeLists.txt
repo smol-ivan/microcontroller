@@ -1,5 +1,5 @@
 add_executable(hello_7segment
-        hello_7segment.c
+        hello_7segment.S
         ../common/sdk_inlines.c
         )
 
