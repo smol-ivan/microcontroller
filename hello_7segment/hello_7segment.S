@@ -103,7 +103,7 @@ val_eq_0:
     b       end_if
 val_not_eq_0:
     ldr     r1, [r7, 44]
-    subs    r1, #1
+    adds    r1, -1
     str     r1, [r7, 44]
     b end_if
 end_if:
