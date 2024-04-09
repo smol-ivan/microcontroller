@@ -128,7 +128,7 @@ end_if:
 
 
 .align 4
-DELAY:          .word 2000
+DELAY:          .word 1000
 STR1:           .ascii "Hello, 7segment - press button to count down!\012\000"
 @ STR3:           .ascii "Hello, else if!\012\000"
 @ STR4:           .ascii "Hello, else!\012\000"
