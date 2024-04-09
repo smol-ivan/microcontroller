@@ -106,55 +106,6 @@ val_not_eq_0:
     subs    r1, #1
     str     r1, [r7, 44]
     b end_if
-
-
-
-
-
-
-
-
-
-
-
-
-@ button_not_presed:
-@ @ Código si el botón no está presionado
-@     ldr     r6, [r7, 44]
-@     movs    r0, #9
-@     cmp     r6, r0
-@     beq     val_eq_9
-@ val_neq_9:
-@ @ Codigo si val != 9
-@     @ val ++
-@     ldr     r1, [r7, 44]
-@     adds    r1, #1
-@     str     r1, [r7, 44]
-@     b end_if
-@ val_eq_9:
-@ @codigo si val == 9
-@     @ val = 0
-@     movs    r1, #0
-@     str     r1, [r7, 44]
-@     b end_if
-@ button_pressed:
-@ @ Código si el botón está presionado
-@     ldr     r6, [r7, 44]
-@     movs    r0, #0
-@     cmp     r6, r0
-@     beq     val_eq_0
-@ val_neq_0:
-@ @ Codigo por si boton esta presionado y val != 0
-@     @ val--
-@     ldr     r1, [r7, 44]
-@     subs    r1, #1
-@     str     r1, [r7, 44]
-@     b       end_if
-@ val_eq_0:
-@ @ Codigo por si boton esta presionado y val == 0
-@     @ val = 9
-@     movs    r1, #9
-@     str     r1, [r7, 44]
 end_if:
     @ mask = bits[val] << FIRST_GPIO
     movs    r3, r7          @ gets bit's base address
