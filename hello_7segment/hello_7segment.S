@@ -29,7 +29,7 @@ main:
     @ for loop
     @ iterator's init
     movs    r3, FIRST_GPIO
-    str     r7, [r7, 40]
+    str     r3, [r7, 40]
     b       L1 @ salto incondicional
     @ loop's body
 L2:
@@ -118,9 +118,14 @@ end_if:
     ldr     r0, [r7, 48]
     bl      gpio_set_mask_wrapper
     @ sleep_ms(250)
-    ldr     r0, =DELAY
-    bl      sleep_ms
+    @ bl      sleep_ms
     @ gpio_clr_mask(mask)
+    @ movs    r0, #250
+    ldr     r0, =DELAY
+loop_d:
+    adds    r0, -1
+    cmp     r0, 0
+    bne     loop_d
     ldr     r0, [r7, 48]
     bl      gpio_clr_mask_wrapper
     b       L4
@@ -128,23 +133,19 @@ end_if:
 
 
 .align 4
-DELAY:          .word 1000
+DELAY:          .word 10
 STR1:           .ascii "Hello, 7segment - press button to count down!\012\000"
-@ STR3:           .ascii "Hello, else if!\012\000"
-@ STR4:           .ascii "Hello, else!\012\000"
-@ STR5:           .ascii "Hello, nested if!\012\000"
-@ STR6:           .ascii "Hello, nested else!\012\000"
 
 .section    .rodata @read only data
 .align 2
 BITS:   
-    .word   0x3f
-    .word   0x06
-    .word   0x5b
-    .word   0x4f
-    .word   0x66
-    .word   0x6d
-    .word   0x7d
-    .word   0x07
-    .word   0x7f
-    .word   0x67
+    .word   0xc0
+    .word   0xf9
+    .word   0xa4
+    .word   0xb0
+    .word   0x99
+    .word   0x92
+    .word   0x82
+    .word   0xf8
+    .word   0x80
+    .word   0x98
